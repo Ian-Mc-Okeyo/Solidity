@@ -6,6 +6,11 @@ contract MyContract {
         uint favouriteNumber;
         string name;
     }
+    uint someData = 3;
+
+    function retrieveData() public view returns(uint){
+        return someData;
+    }
 
     People[] public people;
 
@@ -15,7 +20,7 @@ contract MyContract {
 
     }
 
-    function getPerson(uint _id) public view returns(uint){
-        return (people[_id].favouriteNumber);
+    function getPerson(uint _id) public view returns(uint, string memory){
+        return (people[_id].favouriteNumber, people[_id].name);
     }
 }
